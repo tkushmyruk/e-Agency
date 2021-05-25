@@ -1,0 +1,179 @@
+"2021-05-25 18:57:21 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 4050 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 18:57:21 - No active profile set, falling back to default profiles: default
+""2021-05-25 18:57:22 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 18:57:22 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 18:57:22 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 18:57:22 - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+""2021-05-25 18:57:23 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 18:57:23 - Starting service [Tomcat]
+""2021-05-25 18:57:23 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 18:57:23 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 18:57:23 - Root WebApplicationContext: initialization completed in 1158 ms
+""2021-05-25 18:57:23 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 18:57:23 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 18:57:23 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 18:57:23 - HikariPool-1 - Starting...
+""2021-05-25 18:57:23 - HikariPool-1 - Start completed.
+""2021-05-25 18:57:23 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 18:57:24 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 18:57:24 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 18:57:24 - LiveReload server is running on port 35729
+""2021-05-25 18:57:24 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 18:57:24 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b0b13a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@18b194f7, org.springframework.security.web.header.HeaderWriterFilter@11b90f33, org.springframework.security.web.authentication.logout.LogoutFilter@67524995, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2222bd6e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5f61faa7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@63fd0a6e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f0559c9, org.springframework.security.web.session.SessionManagementFilter@5c95f382, org.springframework.security.web.access.ExceptionTranslationFilter@14482be2, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@21231909]
+""2021-05-25 18:57:24 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 18:57:25 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 18:57:25 - Started Application in 3.467 seconds (JVM running for 4.131)
+""2021-05-25 18:57:29 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+""2021-05-25 18:57:29 - Initializing Servlet 'dispatcherServlet'
+""2021-05-25 18:57:29 - Completed initialization in 1 ms
+""2021-05-25 18:57:29 - Main page
+""2021-05-25 18:59:17 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 18:59:17 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 18:59:17 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 18:59:17 - HikariPool-1 - Shutdown completed.
+""2021-05-25 18:59:19 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 4426 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 18:59:19 - No active profile set, falling back to default profiles: default
+""2021-05-25 18:59:19 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 18:59:19 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 18:59:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 18:59:20 - Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+""2021-05-25 18:59:20 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 18:59:20 - Starting service [Tomcat]
+""2021-05-25 18:59:20 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 18:59:20 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 18:59:20 - Root WebApplicationContext: initialization completed in 1123 ms
+""2021-05-25 18:59:21 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 18:59:21 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 18:59:21 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 18:59:21 - HikariPool-1 - Starting...
+""2021-05-25 18:59:21 - HikariPool-1 - Start completed.
+""2021-05-25 18:59:21 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 18:59:21 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 18:59:21 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 18:59:21 - LiveReload server is running on port 35729
+""2021-05-25 18:59:22 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 18:59:22 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@d277d17, org.springframework.security.web.context.SecurityContextPersistenceFilter@12dc25ae, org.springframework.security.web.header.HeaderWriterFilter@6a5c8bd4, org.springframework.security.web.authentication.logout.LogoutFilter@3c3badf5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2b364c01, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6cac7fbf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@62ad07ee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@786ec23c, org.springframework.security.web.session.SessionManagementFilter@5c11f7ec, org.springframework.security.web.access.ExceptionTranslationFilter@c130188, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@735047fb]
+""2021-05-25 18:59:22 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 18:59:22 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 18:59:22 - Started Application in 3.363 seconds (JVM running for 4.28)
+""2021-05-25 18:59:50 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 18:59:50 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 18:59:50 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 18:59:50 - HikariPool-1 - Shutdown completed.
+""2021-05-25 18:59:59 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 4557 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 18:59:59 - No active profile set, falling back to default profiles: default
+""2021-05-25 18:59:59 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 18:59:59 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 18:59:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 18:59:59 - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+""2021-05-25 19:00:00 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 19:00:00 - Starting service [Tomcat]
+""2021-05-25 19:00:00 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 19:00:00 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 19:00:00 - Root WebApplicationContext: initialization completed in 1123 ms
+""2021-05-25 19:00:00 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 19:00:00 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 19:00:00 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 19:00:00 - HikariPool-1 - Starting...
+""2021-05-25 19:00:00 - HikariPool-1 - Start completed.
+""2021-05-25 19:00:00 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 19:00:01 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 19:00:01 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:00:01 - LiveReload server is running on port 35729
+""2021-05-25 19:00:01 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 19:00:01 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@36a7bd3f, org.springframework.security.web.context.SecurityContextPersistenceFilter@1aba06d5, org.springframework.security.web.header.HeaderWriterFilter@4dd8a6c1, org.springframework.security.web.authentication.logout.LogoutFilter@767f3fe5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4dbcba19, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1941d931, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@22d1ba35, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1016b3d7, org.springframework.security.web.session.SessionManagementFilter@77567fce, org.springframework.security.web.access.ExceptionTranslationFilter@235a4110, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@87335b9]
+""2021-05-25 19:00:02 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:00:02 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 19:00:02 - Started Application in 3.346 seconds (JVM running for 4.014)
+""2021-05-25 19:00:07 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:00:07 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:00:07 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 19:00:07 - HikariPool-1 - Shutdown completed.
+""2021-05-25 19:00:14 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 4616 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 19:00:14 - No active profile set, falling back to default profiles: default
+""2021-05-25 19:00:14 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 19:00:14 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 19:00:15 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 19:00:15 - Finished Spring Data repository scanning in 43 ms. Found 3 JPA repository interfaces.
+""2021-05-25 19:00:15 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 19:00:15 - Starting service [Tomcat]
+""2021-05-25 19:00:15 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 19:00:15 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 19:00:15 - Root WebApplicationContext: initialization completed in 1165 ms
+""2021-05-25 19:00:16 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 19:00:16 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 19:00:16 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 19:00:16 - HikariPool-1 - Starting...
+""2021-05-25 19:00:16 - HikariPool-1 - Start completed.
+""2021-05-25 19:00:16 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 19:00:16 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 19:00:16 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:00:16 - LiveReload server is running on port 35729
+""2021-05-25 19:00:17 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 19:00:17 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4dbf9a3, org.springframework.security.web.context.SecurityContextPersistenceFilter@122e3740, org.springframework.security.web.header.HeaderWriterFilter@2d3bf76a, org.springframework.security.web.authentication.logout.LogoutFilter@773b73d8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6a2ddf73, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@65e8ea62, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@298edb3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@679e2525, org.springframework.security.web.session.SessionManagementFilter@4535d2bd, org.springframework.security.web.access.ExceptionTranslationFilter@52d77b35, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@615749c1]
+""2021-05-25 19:00:17 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:00:17 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 19:00:17 - Started Application in 3.445 seconds (JVM running for 4.119)
+""2021-05-25 19:00:27 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:00:27 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:00:27 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 19:00:28 - HikariPool-1 - Shutdown completed.
+""2021-05-25 19:00:31 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 4676 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 19:00:31 - No active profile set, falling back to default profiles: default
+""2021-05-25 19:00:31 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 19:00:31 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 19:00:32 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 19:00:32 - Finished Spring Data repository scanning in 44 ms. Found 3 JPA repository interfaces.
+""2021-05-25 19:00:32 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 19:00:32 - Starting service [Tomcat]
+""2021-05-25 19:00:32 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 19:00:32 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 19:00:32 - Root WebApplicationContext: initialization completed in 1192 ms
+""2021-05-25 19:00:32 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 19:00:32 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 19:00:32 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 19:00:32 - HikariPool-1 - Starting...
+""2021-05-25 19:00:33 - HikariPool-1 - Start completed.
+""2021-05-25 19:00:33 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 19:00:33 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 19:00:33 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:00:33 - LiveReload server is running on port 35729
+""2021-05-25 19:00:33 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 19:00:34 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@25c02491, org.springframework.security.web.context.SecurityContextPersistenceFilter@7374fa07, org.springframework.security.web.header.HeaderWriterFilter@7bc7f820, org.springframework.security.web.authentication.logout.LogoutFilter@46fc1812, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a4a8856, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@78dc3b41, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7c7a7ddb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@566bdf4, org.springframework.security.web.session.SessionManagementFilter@73837cac, org.springframework.security.web.access.ExceptionTranslationFilter@4f74a477, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6d784eaf]
+""2021-05-25 19:00:34 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:00:34 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 19:00:34 - Started Application in 3.536 seconds (JVM running for 4.21)
+""2021-05-25 19:03:51 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:03:51 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:03:51 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 19:03:51 - HikariPool-1 - Shutdown completed.
+""2021-05-25 19:03:55 - Starting Application using Java 11.0.4 on MacBook-Pro-Roman-2.local with PID 5298 (/Users/roman/IdeaProjects/ehotel/target/classes started by roman in /Users/roman/IdeaProjects/ehotel)
+""2021-05-25 19:03:55 - No active profile set, falling back to default profiles: default
+""2021-05-25 19:03:55 - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+""2021-05-25 19:03:55 - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+""2021-05-25 19:03:55 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+""2021-05-25 19:03:55 - Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+""2021-05-25 19:03:56 - Tomcat initialized with port(s): 8081 (http)
+""2021-05-25 19:03:56 - Starting service [Tomcat]
+""2021-05-25 19:03:56 - Starting Servlet engine: [Apache Tomcat/9.0.41]
+""2021-05-25 19:03:56 - Initializing Spring embedded WebApplicationContext
+""2021-05-25 19:03:56 - Root WebApplicationContext: initialization completed in 1112 ms
+""2021-05-25 19:03:56 - HHH000204: Processing PersistenceUnitInfo [name: default]
+""2021-05-25 19:03:56 - HHH000412: Hibernate ORM core version 5.4.27.Final
+""2021-05-25 19:03:56 - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+""2021-05-25 19:03:56 - HikariPool-1 - Starting...
+""2021-05-25 19:03:56 - HikariPool-1 - Start completed.
+""2021-05-25 19:03:56 - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+""2021-05-25 19:03:57 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+""2021-05-25 19:03:57 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:03:57 - LiveReload server is running on port 35729
+""2021-05-25 19:03:57 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2021-05-25 19:03:58 - Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f40147a, org.springframework.security.web.context.SecurityContextPersistenceFilter@27c67d07, org.springframework.security.web.header.HeaderWriterFilter@7b8f7bab, org.springframework.security.web.authentication.logout.LogoutFilter@7d7a7525, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@38fd5191, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13fd522a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@14678794, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f491589, org.springframework.security.web.session.SessionManagementFilter@80d6bdc, org.springframework.security.web.access.ExceptionTranslationFilter@7df042b7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d702de1]
+""2021-05-25 19:03:58 - Initializing ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:03:58 - Tomcat started on port(s): 8081 (http) with context path ''
+""2021-05-25 19:03:58 - Started Application in 3.534 seconds (JVM running for 4.37)
+""2021-05-25 19:05:05 - Shutting down ExecutorService 'applicationTaskExecutor'
+""2021-05-25 19:05:05 - Closing JPA EntityManagerFactory for persistence unit 'default'
+""2021-05-25 19:05:05 - HikariPool-1 - Shutdown initiated...
+""2021-05-25 19:05:05 - HikariPool-1 - Shutdown completed.
+"
