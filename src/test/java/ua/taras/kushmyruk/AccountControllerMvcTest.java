@@ -45,7 +45,7 @@ public class AccountControllerMvcTest {
 
   @Test
   public void getAccountTest() throws Exception {
-    this.mockMvc.perform(get("/user/123"))
+    this.mockMvc.perform(get("/user-account"))
         .andDo(print())
         .andExpect(status().isOk())
         .andExpect(authenticated());

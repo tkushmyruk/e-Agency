@@ -57,9 +57,9 @@
         <p><b>Room Type</b></p>
         <#list tour.getRoomType() as type>
         <div>
-          <input type="radio" id="standart" name="roomType" value="STANDART"
-                 <#if type == "STANDART">checked</#if> >
-          <label for="standart">Standart</label>
+          <input type="radio" id="standard" name="roomType" value="STANDARD"
+                 <#if type == "STANDARD">checked</#if> >
+          <label for="standard">Standard</label>
         </div>
         <div>
           <input type="radio" id="luxe" name="roomType" value="LUXE"

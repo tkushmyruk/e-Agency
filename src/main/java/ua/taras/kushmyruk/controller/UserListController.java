@@ -4,6 +4,7 @@ import java.util.Map;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +28,7 @@ public class UserListController {
   }
 
   @GetMapping("/user-list")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String getUserList(Model model,
       @PageableDefault(sort = {"id"}, direction = Direction.DESC)Pageable pageable){
     model.addAttribute("page", userListService.getUserList(pageable));
@@ -35,6 +37,7 @@ public class UserListController {
   }
 
   @GetMapping("/user-list/{username}")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String editUser(@PathVariable String username, Model model){
     model.addAttribute("user", userService.loadUserByUsername(username));
     model.addAttribute("roles", UserRole.values());
@@ -42,6 +45,7 @@ public class UserListController {
   }
 
   @PostMapping("/user-list/{username}")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String saveUser(@PathVariable String username,
       @RequestParam("userId") User user,
       @RequestParam Map<String, String> form
@@ -51,6 +55,7 @@ public class UserListController {
   }
 
   @PostMapping("/user-block")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String blockUser(@RequestParam String username,
       Model model, @PageableDefault(sort = {"id"}, direction = Direction.DESC)Pageable pageable
       ){
@@ -61,6 +66,7 @@ public class UserListController {
   }
 
   @PostMapping("/user-active")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String activeUser(@RequestParam String username,
       Model model, @PageableDefault(sort = {"id"}, direction = Direction.DESC)Pageable pageable){
     userListService.activeUser(username);

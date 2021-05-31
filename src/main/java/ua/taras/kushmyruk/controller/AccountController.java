@@ -25,9 +25,9 @@ public class AccountController {
     this.tourService = tourService;
   }
 
-  @GetMapping("/user/{username}")
-  public String getAccount(@PathVariable String username, Model model){
-    model.addAttribute("user", userService.loadUserByUsername(username));
+  @GetMapping("/user-account")
+  public String getAccount(@AuthenticationPrincipal User user, Model model){
+    model.addAttribute("user", user);
     return "userAccount";
   }
 
@@ -52,8 +52,10 @@ public class AccountController {
   @PostMapping("/creditCard")
   public String addCard(@AuthenticationPrincipal User user,
       @RequestParam String cardNumber,
-      @RequestParam String cardPassword){
+      @RequestParam String cardPassword,
+      Model model){
     creditCardService.addCard(user, cardNumber, cardPassword);
+    model.addAttribute("creditCard", creditCardService.getCreditCard(user));
     return "creditCard";
   }
 
@@ -74,6 +76,4 @@ public class AccountController {
    model.addAttribute("boughtTours", tourService.getBoughtToursByUser(user));
    return "boughtTours";
   }
-
-
 }

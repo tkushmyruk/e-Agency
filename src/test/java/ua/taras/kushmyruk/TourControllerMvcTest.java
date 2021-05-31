@@ -71,7 +71,7 @@ public class TourControllerMvcTest {
     .param("country", "Turkey")
     .param("locality", "Kumur")
     .param("tourType", "REST")
-    .param("roomType", "STANDART")
+    .param("roomType", "STANDARD")
     .param("hotelStars", "THREE")
     .param("hotelName", "Grand Hotel")
     .param("isAllInclusive", "allInclusive")

@@ -49,9 +49,9 @@
     <div>
       <p><b>Room Type</b></p>
       <div>
-        <input type="radio" id="standart" name="roomType" value="STANDART"
+        <input type="radio" id="standard" name="roomType" value="STANDARD"
                checked>
-        <label for="standart">Standart</label>
+        <label for="standard">Standard</label>
       </div>
       <div>
         <input type="radio" id="luxe" name="roomType" value="LUXE">

@@ -14,7 +14,6 @@
         <label>Email : <input type="email" name="email" placeholder="email"/></label>
       </div>
     </#if>
-    <#if !isRegisterForm><div><a href="/registration">Add new user</a></div></#if>
     <button type="submit">
       <#if isRegisterForm>Create <#else>Sign in</#if></button>
   </form>

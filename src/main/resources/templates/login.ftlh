@@ -3,5 +3,4 @@
 <@c.main>
   ${message?if_exists}
   <@p.login "/login" false/>
-  <@p.logout/>
 </@c.main>

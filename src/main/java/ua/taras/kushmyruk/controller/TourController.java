@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,7 @@ public class TourController {
   }
 
   @GetMapping("/tour/add")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String getAddTourPage(){
     return "addTour";
   }
@@ -43,6 +45,7 @@ public class TourController {
   }
 
   @GetMapping("/tour-redact/{tourName}")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String redactTourPage(@PathVariable String tourName, Model model){
     System.out.println(tourService.getTour(tourName).getPrice());
     model.addAttribute("tour" ,tourService.getTour(tourName));
@@ -51,6 +54,7 @@ public class TourController {
 
 
   @PostMapping("/tour/add")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String addNewTour(@RequestParam String tourName,
       @RequestParam int countOfPeople,
       @RequestParam String price,
@@ -80,6 +84,7 @@ public class TourController {
   }
 
   @PostMapping("/tour-redact/{tourName}")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String tourRedact(@PathVariable String tourName,
       @RequestParam int countOfPeople,
       @RequestParam String price,
@@ -127,6 +132,7 @@ public class TourController {
   }
 
   @PostMapping("/delete-tour/{tourName}")
+  @PreAuthorize("hasAuthority('ADMIN')")
   public String deleteTour(@PathVariable String tourName, Model model){
      tourService.deleteTour(tourName);
      model.addAttribute("catalog", tourService.getAllTours());

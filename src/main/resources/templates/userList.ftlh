@@ -32,7 +32,6 @@
         </td>
       </tr>
     </#list>
-
     </tbody>
     <@p.pager url page/>
   </table>

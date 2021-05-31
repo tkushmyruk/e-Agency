@@ -5,4 +5,5 @@
 *.ipr
 *target
 .DS_STORE
+*.gs
 

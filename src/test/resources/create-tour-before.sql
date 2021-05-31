@@ -21,7 +21,7 @@ VALUES (1, 'THREE'),
 INSERT INTO room_type(tour_id, room_type)
 VALUES(1, 'LUXE'),
 (2, 'PRESIDENT'),
-(3, 'STANDART');
+(3, 'STANDARD');
 
 INSERT INTO tour_type(tour_id, tour_type)
 VALUES (1, 'SHOPPING'),

@@ -1,5 +1,6 @@
 <#import "parts/common.ftlh" as c/>
 <#import "parts/pager.ftlh" as p/>
+<#include "parts/security.ftlh"/>
 <@c.main>
   <h2>Catalog of tours</h2>
   <a href="/tour/add">Add Tour</a>
@@ -39,12 +40,14 @@
         <div id="tour-list">
           <div>${tour.getTourName()}</div>
           <div><a href="/tour/${tour.getTourName()}">More about it</a></div>
+          <#if isAdmin || isManager>
           <div><a href="/tour-redact/${tour.getTourName()}">Redact</a></div>
           <div>
             <form method="post" action="/delete-tour/${tour.getTourName()}">
               <button type="submit">Cancel</button>
             </form>
           </div>
+          </#if>
         </div>
         <br/>
       </#if>
