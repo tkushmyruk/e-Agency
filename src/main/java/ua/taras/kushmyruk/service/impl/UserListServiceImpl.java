@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import ua.taras.kushmyruk.service.UserListService;
 
 @Service
 public class UserListServiceImpl implements UserListService {
+  private static final Logger LOGGER = LoggerFactory.getLogger(UserListServiceImpl.class);
   private final UserRepository userRepository;
 
   public UserListServiceImpl(UserRepository userRepository) {
@@ -38,6 +41,7 @@ public class UserListServiceImpl implements UserListService {
         user.getRoles().add(UserRole.valueOf(key));
       }
     }
+    LOGGER.info("Changes for {} was successfully saved ", user.getUsername());
     userRepository.save(user);
   }
 
@@ -46,6 +50,7 @@ public class UserListServiceImpl implements UserListService {
   public void blockUser(String username){
     User user = userRepository.findByUsername(username);
     user.setActive(false);
+    LOGGER.info("User {} was blocked", username );
     userRepository.save(user);
   }
 
@@ -56,6 +61,7 @@ public class UserListServiceImpl implements UserListService {
     User user = userRepository.findByUsername(username);
     System.out.println(user);
     user.setActive(true);
+    LOGGER.info("User {} was activated", username );
     userRepository.save(user);
   }
 }

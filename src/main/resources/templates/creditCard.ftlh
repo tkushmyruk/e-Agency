@@ -5,10 +5,24 @@
     <div>
       <form method="post">
         <div>
-          <label>Card Number : <input type="text" name="cardNumber" placeholder="Card Number"/></label>
+          <label>Card Number :
+            <input type="text" name="cardNumber" placeholder="Card Number"/>
+          </label>
+          <#if cardNumberError??>
+            <div class="invalid-feedback">
+              ${cardNubmerError}
+            </div>
+          </#if>
         </div>
         <div>
-          <label>Card Password : <input type="password" name="cardPassword" placeholder="Card Password"/></label>
+          <label>Card Password :
+            <input type="password" name="cardPassword" placeholder="Card Password"/>
+          </label>
+          <#if cardPasswordError??>
+            <div class="invalid-feedback">
+              ${cardPasswordError}
+            </div>
+          </#if>
         </div>
         <button type="submit">Save Card</button>
       </form>

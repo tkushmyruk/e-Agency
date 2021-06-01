@@ -1,12 +1,16 @@
 package ua.taras.kushmyruk.controller;
 
+import java.util.Map;
+import javax.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.taras.kushmyruk.model.CreditCard;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.service.CreditCardService;
 import ua.taras.kushmyruk.service.TourService;
@@ -51,10 +55,12 @@ public class AccountController {
 
   @PostMapping("/creditCard")
   public String addCard(@AuthenticationPrincipal User user,
-      @RequestParam String cardNumber,
-      @RequestParam String cardPassword,
+      @Valid CreditCard creditCard,
+      BindingResult bindingResult,
       Model model){
-    creditCardService.addCard(user, cardNumber, cardPassword);
+    creditCardService.addCard(user, creditCard, bindingResult);
+    Map<String, String> errorsMap = ControllerUtil.getErrors(bindingResult);
+    model.mergeAttributes(errorsMap);
     model.addAttribute("creditCard", creditCardService.getCreditCard(user));
     return "creditCard";
   }

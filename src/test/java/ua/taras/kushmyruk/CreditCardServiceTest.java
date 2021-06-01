@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.validation.BindingResult;
+import ua.taras.kushmyruk.model.CreditCard;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.model.UserRole;
 import ua.taras.kushmyruk.repository.CreditCardRepository;
@@ -34,7 +36,10 @@ public class CreditCardServiceTest {
     user.setEmail("loter98@gmail.com");
     user.setActive(true);
     user.setRoles(Collections.singleton(UserRole.USER));
-    creditCardService.addCard(user, "1222 2222 2222 2222", "1234");
+    CreditCard creditCard = new CreditCard();
+    creditCard.setCardNumber("2222 2222 2222 2222");
+    creditCard.setCardPassword("password");
+    creditCardService.addCard(user,creditCard , null);
   }
 
 }

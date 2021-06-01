@@ -16,6 +16,7 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Tour {
@@ -30,9 +31,11 @@ public class Tour {
   private String price;
   @NotNull(message = "Tour must have start date")
   @Future(message = "Start date cannot be in past")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate startDate;
   @NotNull(message = "Tour must in someday ends")
   @Future(message = "End date cannot be in past")
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate endDate;
   @NotBlank(message = "Tour must have start point")
   private String departingFrom;
@@ -53,7 +56,7 @@ public class Tour {
   @CollectionTable(name = "hotel_stars", joinColumns = @JoinColumn(name = "tour_id"))
   @Enumerated(EnumType.STRING)
   private Set<HotelStars> hotelStars;
-  @NotBlank(message = "Customer must somewhere staying")
+  @NotBlank(message = "Customer must somewhere to stay")
   private String hotelName;
   private boolean isAllInclusive;
   private boolean isHot;

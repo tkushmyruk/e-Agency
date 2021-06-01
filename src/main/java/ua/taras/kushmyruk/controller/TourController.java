@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ua.taras.kushmyruk.model.Tour;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.service.TourService;
 
@@ -58,27 +59,13 @@ public class TourController {
 
   @PostMapping("/tour/add")
   @PreAuthorize("hasAuthority('ADMIN')")
-  public String addNewTour(@Valid @RequestParam String tourName,
-      @Valid @RequestParam Integer countOfPeople,
-      @Valid @RequestParam String price,
-      @Valid @RequestParam String startDate,
-      @Valid @RequestParam String endDate,
-      @Valid @RequestParam String country,
-      @Valid @RequestParam String departingFrom,
-      @Valid @RequestParam String locality,
-      @RequestParam String tourType,
-      @RequestParam String roomType,
-      @RequestParam String hotelStars,
-      @Valid @RequestParam String hotelName,
-      @RequestParam Optional<String> isAllInclusive,
-      @RequestParam Optional<String> isHot,
+  public String addNewTour(@Valid Tour tour,
       BindingResult bindingResult,
       Model model
       ){
-    boolean save = tourService.addTour(tourName, countOfPeople, price, LocalDate.parse(startDate),
-        LocalDate.parse(endDate), departingFrom, country,
-        locality, hotelName, tourType, roomType, hotelStars, isAllInclusive, isHot);
-    return save ? "redirect:/catalog" : "addTour";
+    Map<String, String> errorsMap = ControllerUtil.getErrors(bindingResult);
+    model.mergeAttributes(errorsMap);
+    return tourService.addTour(tour, bindingResult) ? "redirect:/catalog" : "addTour";
   }
 
   @PostMapping("/tour/{tourName}")

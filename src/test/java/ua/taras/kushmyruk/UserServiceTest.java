@@ -24,8 +24,14 @@ public class UserServiceTest {
 
   @Test
   public void addUserTest(){
-    boolean isUserCreated = userService
-        .addUser("user", "password", "email@gmail.com");
+    User  user = new User();
+    user.setUsername("username");
+    user.setPassword("password");
+    user.setEmail("email@gmail.com");
+    user.setActive(true);
+    user.setRoles(Collections.singleton(UserRole.USER));
+
+    boolean isUserCreated = userService.addUser(user, null);
 
     Assert.assertTrue(isUserCreated);
   }

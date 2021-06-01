@@ -12,6 +12,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import ua.taras.kushmyruk.model.CreditCard;
 import ua.taras.kushmyruk.model.HotelStars;
 import ua.taras.kushmyruk.model.RoomType;
@@ -27,7 +28,7 @@ import ua.taras.kushmyruk.service.util.TourPriceComparator;
 
 @Service
 public class TourServiceImpl implements TourService {
-  private static final Logger logger = LoggerFactory.getLogger(TourServiceImpl.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(TourServiceImpl.class);
 
   private final TourRepository tourRepository;
   private final UserRepository userRepository;
@@ -58,38 +59,16 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
-  @Transactional
-  public boolean addTour(String tourName, int countOfPeople, String price, LocalDate startDate,
-      LocalDate endDate, String departingFrom, String country, String locality, String hotelName,
-      String tourType, String roomType, String hotelStars, Optional<String> isAllInclusive,
-      Optional<String> isHot) {
-    Tour tourFromDb = tourRepository.findByTourName(tourName);
+  public boolean addTour(Tour tour, BindingResult bindingResult) {
+    if (bindingResult.hasErrors()){
+      return false;
+    }
+    Tour tourFromDb = tourRepository.findByTourName(tour.getTourName());
 
     if (tourFromDb != null) {
       return false;
     }
-
-    Tour tour = new Tour();
-    tour.setTourName(tourName);
-    tour.setCountOfPeople(countOfPeople);
-    tour.setPrice(price);
-    tour.setStartDate(startDate);
-    tour.setEndDate(endDate);
-    tour.setDepartingFrom(departingFrom);
-    tour.setCountry(country);
-    tour.setLocality(locality);
-    tour.setTourType(Collections.singleton(TourType.valueOf(tourType)));
-    tour.setRoomType(Collections.singleton(RoomType.valueOf(roomType)));
-    tour.setTourStatus("Registered");
-    tour.setHotelStars(Collections.singleton(HotelStars.valueOf(hotelStars)));
-    tour.setHotelName(hotelName);
-    if (isAllInclusive.isPresent()) {
-      tour.setAllInclusive(true);
-    }
-    if (isHot.isPresent()) {
-      tour.setHot(true);
-    }
-    logger.info("Tour {} was saved", tour.getTourName());
+    LOGGER.info("Tour {} was saved", tour.getTourName());
     tourRepository.save(tour);
     return true;
   }
@@ -101,6 +80,7 @@ public class TourServiceImpl implements TourService {
     Tour selectedTour = tourRepository.findByTourName(tourName);
     CreditCard creditCard = userFromDb.getCreditCard();
     if (creditCard == null || creditCard.getBalance() - Double.valueOf(selectedTour.getPrice()) < 0) {
+      LOGGER.info("User {} dont have enough money to buy {}", user.getUsername(), tourName);
       return false;
     }
     creditCard.setBalance(creditCard.getBalance() - Double.valueOf(selectedTour.getPrice()));
@@ -108,6 +88,7 @@ public class TourServiceImpl implements TourService {
     selectedTour.setTourStatus("Payed");
     creditCardRepository.save(creditCard);
     tourRepository.save(selectedTour);
+    LOGGER.info("Tour {} was bought by {}", tourName, user.getUsername());
     return true;
   }
 

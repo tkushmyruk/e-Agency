@@ -1,7 +1,10 @@
 package ua.taras.kushmyruk.service.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.BindingResult;
 import ua.taras.kushmyruk.model.CreditCard;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.repository.CreditCardRepository;
@@ -10,6 +13,7 @@ import ua.taras.kushmyruk.service.CreditCardService;
 
 @Service
 public class CreditCardServiceImpl implements CreditCardService {
+  private static final Logger LOGGER = LoggerFactory.getLogger(CreditCardServiceImpl.class);
   private final CreditCardRepository creditCardRepository;
   private final UserRepository userRepository;
 
@@ -22,12 +26,17 @@ public class CreditCardServiceImpl implements CreditCardService {
 
   @Override
   @Transactional
-  public void addCard(User user, String cardNumber, String cardPassword){
-    CreditCard creditCard = new CreditCard();
-    creditCard.setCardNumber(cardNumber);
-    creditCard.setCardPassword(cardPassword);
-    creditCard.setUser(user);
-    creditCardRepository.save(creditCard);
+  public void addCard(User user, CreditCard creditCard, BindingResult bindingResult){
+    if (bindingResult != null && bindingResult.hasErrors()){
+      LOGGER.info("User {} filled wrong data", user.getUsername());
+      return;
+    }
+    CreditCard cardFromDb = creditCardRepository.findByCardNumber(creditCard.getCardNumber());
+    if(cardFromDb != null) {
+      creditCard.setUser(user);
+      creditCardRepository.save(creditCard);
+      LOGGER.info("Credit card {} successfully added", user.getCreditCard().getCardNumber());
+    }
   }
   @Override
   @Transactional
@@ -37,8 +46,10 @@ public class CreditCardServiceImpl implements CreditCardService {
     if(creditCard.getCardPassword().equals(cardPassword)) {
       creditCard.setBalance(creditCard.getBalance() + money);
       creditCardRepository.save(creditCard);
+      LOGGER.info("Card {} was successfully replenish on {}", creditCard.getCardNumber(), money );
       return "Your card was successfully replenished";
     }
+    LOGGER.info("User {} filled wrong card password", user.getUsername());
     return "Password is incorrect. Please try Again";
 
   }

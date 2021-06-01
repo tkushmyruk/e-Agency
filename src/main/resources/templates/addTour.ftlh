@@ -4,31 +4,94 @@
   <div>
     <form method="post">
     <div>
-      <label>Tour Name : <input type="text" name="tourName" placeholder="Tour Name"/></label>
+      <label>Tour Name :
+        <input type="text" name="tourName" placeholder="Tour Name"/>
+      </label>
+      <#if tourNameError??>
+        <div class="invalid-feedback">
+          ${tourNameError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Count of People : <input type="number" name="countOfPeople" placeholder="Count of People"/></label>
+      <label>Count of People :
+        <input type="number" name="countOfPeople" placeholder="Count of People"/>
+      </label>
+      <#if countOfPeopleError??>
+        <div class="invalid-feedback">
+          ${countOfPeopleError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Price : <input type="number" step="0.01" name="price" placeholder="Price"/></label>
+      <label>Price :
+        <input type="number" step="0.01" name="price" placeholder="Price"/>
+      </label>
+      <#if priceError??>
+        <div class="invalid-feedback">
+          ${priceError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Start Date : <input type="date" name="startDate" placeholder="Start Date"/></label>
+      <label>Start Date :
+        <input type="date" name="startDate" placeholder="Start Date"/>
+      </label>
+      <#if startDateError??>
+        <div class="invalid-feedback">
+          ${startDateError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>End Date : <input type="date" name="endDate" placeholder="End Date"/></label>
+      <label>End Date :
+        <input type="date" name="endDate" placeholder="End Date"/>
+      </label>
+      <#if endDateError??>
+        <div class="invalid-feedback">
+          ${endDateError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Departing From : <input type="text" name="departingFrom" placeholder="Departing From"/></label>
+      <label>Departing From :
+        <input type="text" name="departingFrom" placeholder="Departing From"/>
+      </label>
+      <#if departingFromError??>
+        <div class="invalid-feedback">
+          ${departingFromError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Country : <input type="text" name="country" placeholder="Country"/></label>
+      <label>Country :
+        <input type="text" name="country" placeholder="Country"/>
+      </label>
+      <#if countryError??>
+        <div class="invalid-feedback">
+          ${countryError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Locality : <input type="text" name="locality" placeholder="Locality"/></label>
+      <label>Locality :
+        <input type="text" name="locality" placeholder="Locality"/>
+      </label>
+      <#if localityError??>
+        <div class="invalid-feedback">
+          ${localityError}
+        </div>
+      </#if>
     </div>
     <div>
-      <label>Hotel Name : <input type="text" name="hotelName" placeholder="Hotel Name"/></label>
+      <label>Hotel Name :
+        <input type="text" name="hotelName" placeholder="Hotel Name"/>
+      </label>
+      <#if hotelNameError??>
+        <div class="invalid-feedback">
+          ${hotelNameError}
+        </div>
+      </#if>
     </div>
     <div>
       <p><b>Tour Type</b></p>

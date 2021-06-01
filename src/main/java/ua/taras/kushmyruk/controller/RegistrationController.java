@@ -1,9 +1,11 @@
 package ua.taras.kushmyruk.controller;
 
+import java.util.Map;
 import javax.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -37,11 +39,13 @@ public class RegistrationController {
   }
 
   @PostMapping("/registration")
-  public String addUser(@Valid @RequestParam String username,
-      @RequestParam String password,
-      @RequestParam String email){
-
-    return userService.addUser(username, password, email) ? "redirect:/login" : "registration";
+  public String addUser(@Valid User user,
+      BindingResult bindingResult,
+      Model model
+  ){
+      Map<String, String> errorsMap = ControllerUtil.getErrors(bindingResult);
+      model.mergeAttributes(errorsMap);
+    return userService.addUser(user, bindingResult) ? "redirect:/login" : "registration";
   }
 
   @PostMapping("/change-password")
