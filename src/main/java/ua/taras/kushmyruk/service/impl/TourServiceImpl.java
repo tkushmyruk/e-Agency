@@ -58,14 +58,15 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
-  public void addTour(String tourName, int countOfPeople, String price, LocalDate startDate,
+  @Transactional
+  public boolean addTour(String tourName, int countOfPeople, String price, LocalDate startDate,
       LocalDate endDate, String departingFrom, String country, String locality, String hotelName,
       String tourType, String roomType, String hotelStars, Optional<String> isAllInclusive,
       Optional<String> isHot) {
     Tour tourFromDb = tourRepository.findByTourName(tourName);
 
     if (tourFromDb != null) {
-      return;
+      return false;
     }
 
     Tour tour = new Tour();
@@ -90,6 +91,7 @@ public class TourServiceImpl implements TourService {
     }
     logger.info("Tour {} was saved", tour.getTourName());
     tourRepository.save(tour);
+    return true;
   }
 
   @Override
@@ -110,6 +112,7 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
+  @Transactional
   public void redactTour(String tourName, int countOfPeople, String price,
       LocalDate startDate, LocalDate endDate, String departingFrom, String country, String locality,
       String hotelName, String tourStatus, String tourType, String roomType, String hotelStars,
@@ -238,6 +241,7 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
+  @Transactional
   public void deleteTour(String touName) {
     Tour tourFromDb = tourRepository.findByTourName(touName);
     tourFromDb.setTourStatus("Canceled");
@@ -250,6 +254,7 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
+  @Transactional
   public void returnTour(User user, String tourName) {
     Tour userTour = tourRepository.findByTourName(tourName);
     if(userTour != null) {

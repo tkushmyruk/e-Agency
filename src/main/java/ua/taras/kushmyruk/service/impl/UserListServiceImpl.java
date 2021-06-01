@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.model.UserRole;
 import ua.taras.kushmyruk.repository.UserRepository;
@@ -27,6 +28,7 @@ public class UserListServiceImpl implements UserListService {
   }
 
   @Override
+  @Transactional
   public void saveUser(String username, User user, Map<String, String> form) {
     user.setUsername(username);
     Set<String> roles = Arrays.stream(UserRole.values()).map(UserRole::name).collect(Collectors.toSet());
@@ -40,6 +42,7 @@ public class UserListServiceImpl implements UserListService {
   }
 
   @Override
+  @Transactional
   public void blockUser(String username){
     User user = userRepository.findByUsername(username);
     user.setActive(false);
@@ -47,6 +50,7 @@ public class UserListServiceImpl implements UserListService {
   }
 
   @Override
+  @Transactional
   public void activeUser(String username) {
     System.out.println(username);
     User user = userRepository.findByUsername(username);

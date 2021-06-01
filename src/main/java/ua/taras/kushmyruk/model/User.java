@@ -16,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -25,9 +28,15 @@ public class User implements UserDetails {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+  @NotBlank(message = "Username cant be empty")
+  @Length(max = 60, message = "Username too long")
   private String username;
+  @NotBlank(message = "Password cant be empty")
+  @Length(min = 5, message = "Password too short and unsafe")
   private String password;
   private boolean active;
+  @Email(message = "Email is not correct")
+  @NotBlank(message = "Email cannot be empty")
   private String email;
   @ElementCollection(targetClass = UserRole.class, fetch = FetchType.EAGER)
   @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))

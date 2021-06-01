@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.model.UserRole;
 import ua.taras.kushmyruk.repository.UserRepository;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserDetailsService {
     return userRepository.findAll();
   }
 
+  @Transactional
   public boolean addUser(String username, String password, String email) {
     User userFromDb = userRepository.findByUsername(username);
     if (userFromDb != null && username.isEmpty()) {
@@ -43,6 +45,7 @@ public class UserServiceImpl implements UserDetailsService {
     return true;
   }
 
+  @Transactional
   public String changePassword(User user, String newPassword, String newEmail) {
     if (user.getPassword().equals(newPassword) && user.getEmail().equals(newEmail)) {
       return "Nothing was changed";

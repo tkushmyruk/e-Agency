@@ -6,13 +6,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 public class CreditCard {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+  @NotBlank(message = "Card number cannot be empty")
+  @Pattern(regexp = "[0-9][0-9][0-9][0-9] [0-9][0-9][0-9][0-9] [0-9][0-9][0-9][0-9] [0-9][0-9][0-9][0-9]",
+  message = "Card number is not correct")
   private String cardNumber;
+  @NotBlank(message = "Card password cannot be empty")
+  @Length(min = 4,  message = "Card password too short")
   private String cardPassword;
   private double balance;
   @OneToOne

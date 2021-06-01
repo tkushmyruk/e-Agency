@@ -1,6 +1,7 @@
 package ua.taras.kushmyruk.service.impl;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.taras.kushmyruk.model.CreditCard;
 import ua.taras.kushmyruk.model.User;
 import ua.taras.kushmyruk.repository.CreditCardRepository;
@@ -20,6 +21,7 @@ public class CreditCardServiceImpl implements CreditCardService {
   }
 
   @Override
+  @Transactional
   public void addCard(User user, String cardNumber, String cardPassword){
     CreditCard creditCard = new CreditCard();
     creditCard.setCardNumber(cardNumber);
@@ -28,6 +30,7 @@ public class CreditCardServiceImpl implements CreditCardService {
     creditCardRepository.save(creditCard);
   }
   @Override
+  @Transactional
   public String topUpCard(User user, double money, String cardPassword){
     User userFromDb = userRepository.findUserWithCreditCard(user.getId());
     CreditCard creditCard = userFromDb.getCreditCard();

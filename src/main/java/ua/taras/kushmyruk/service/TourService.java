@@ -16,7 +16,7 @@ public interface TourService {
 
   Tour getTour(String tourName);
 
-  void addTour (String tourName, int countOfPeople, String price, LocalDate startDate,
+  boolean addTour (String tourName, int countOfPeople, String price, LocalDate startDate,
       LocalDate endDate, String departingFrom, String country, String locality, String hotelName,
       String tourType, String roomType, String hotelStars, Optional<String> isAllInclusive, Optional<String> isHot);
 

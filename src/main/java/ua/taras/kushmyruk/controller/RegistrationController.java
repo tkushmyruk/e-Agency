@@ -1,5 +1,6 @@
 package ua.taras.kushmyruk.controller;
 
+import javax.validation.Valid;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,7 +37,7 @@ public class RegistrationController {
   }
 
   @PostMapping("/registration")
-  public String addUser(@RequestParam String username,
+  public String addUser(@Valid @RequestParam String username,
       @RequestParam String password,
       @RequestParam String email){
 

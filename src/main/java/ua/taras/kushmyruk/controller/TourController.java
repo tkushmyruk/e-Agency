@@ -1,7 +1,9 @@
 package ua.taras.kushmyruk.controller;
 
 import java.time.LocalDate;
+import java.util.Map;
 import java.util.Optional;
+import javax.validation.Valid;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
@@ -9,6 +11,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,24 +58,27 @@ public class TourController {
 
   @PostMapping("/tour/add")
   @PreAuthorize("hasAuthority('ADMIN')")
-  public String addNewTour(@RequestParam String tourName,
-      @RequestParam int countOfPeople,
-      @RequestParam String price,
-      @RequestParam String startDate,
-      @RequestParam String endDate,
-      @RequestParam String country,
-      @RequestParam String departingFrom,
-      @RequestParam String locality,
+  public String addNewTour(@Valid @RequestParam String tourName,
+      @Valid @RequestParam Integer countOfPeople,
+      @Valid @RequestParam String price,
+      @Valid @RequestParam String startDate,
+      @Valid @RequestParam String endDate,
+      @Valid @RequestParam String country,
+      @Valid @RequestParam String departingFrom,
+      @Valid @RequestParam String locality,
       @RequestParam String tourType,
       @RequestParam String roomType,
       @RequestParam String hotelStars,
-      @RequestParam String hotelName,
+      @Valid @RequestParam String hotelName,
       @RequestParam Optional<String> isAllInclusive,
-      @RequestParam Optional<String> isHot
+      @RequestParam Optional<String> isHot,
+      BindingResult bindingResult,
+      Model model
       ){
-    tourService.addTour(tourName, countOfPeople, price, LocalDate.parse(startDate), LocalDate.parse(endDate), departingFrom, country,
+    boolean save = tourService.addTour(tourName, countOfPeople, price, LocalDate.parse(startDate),
+        LocalDate.parse(endDate), departingFrom, country,
         locality, hotelName, tourType, roomType, hotelStars, isAllInclusive, isHot);
-    return "redirect:/catalog";
+    return save ? "redirect:/catalog" : "addTour";
   }
 
   @PostMapping("/tour/{tourName}")

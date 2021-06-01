@@ -13,19 +13,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Tour {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Long id;
+  @NotBlank(message = "Tour name cannot be empty")
   private String tourName;
-  private int countOfPeople;
+  @NotNull(message = "Field count of people cannot be empty")
+  private Integer countOfPeople;
+  @NotBlank(message = "Tour cannot be free")
   private String price;
+  @NotNull(message = "Tour must have start date")
+  @Future(message = "Start date cannot be in past")
   private LocalDate startDate;
+  @NotNull(message = "Tour must in someday ends")
+  @Future(message = "End date cannot be in past")
   private LocalDate endDate;
+  @NotBlank(message = "Tour must have start point")
   private String departingFrom;
+  @NotBlank(message = "Tour must have any country as a destination")
   private String country;
+  @NotBlank(message = "Tour must have any locality as a destination")
   private String locality;
   @ElementCollection(targetClass = TourType.class, fetch = FetchType.EAGER)
   @CollectionTable(name = "tour_type", joinColumns = @JoinColumn(name = "tour_id"))
@@ -40,6 +53,7 @@ public class Tour {
   @CollectionTable(name = "hotel_stars", joinColumns = @JoinColumn(name = "tour_id"))
   @Enumerated(EnumType.STRING)
   private Set<HotelStars> hotelStars;
+  @NotBlank(message = "Customer must somewhere staying")
   private String hotelName;
   private boolean isAllInclusive;
   private boolean isHot;
