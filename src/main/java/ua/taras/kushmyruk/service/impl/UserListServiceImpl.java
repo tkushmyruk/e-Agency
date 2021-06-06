@@ -57,9 +57,7 @@ public class UserListServiceImpl implements UserListService {
   @Override
   @Transactional
   public void activeUser(String username) {
-    System.out.println(username);
     User user = userRepository.findByUsername(username);
-    System.out.println(user);
     user.setActive(true);
     LOGGER.info("User {} was activated", username );
     userRepository.save(user);

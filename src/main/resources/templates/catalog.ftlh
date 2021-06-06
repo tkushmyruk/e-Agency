@@ -35,7 +35,7 @@
   </div>
   <div>
     <br/>
-    <#list page.content as tour>
+    <#list catalog as tour>
       <#if tour.getTourStatus() == "Registered">
         <div id="tour-list">
           <div>${tour.getTourName()}</div>
@@ -53,5 +53,4 @@
       </#if>
     </#list>
   </div>
-  <@p.pager url page/>
 </@c.main>

@@ -13,7 +13,7 @@ public interface TourService {
 
   List<Tour> getAllTours();
 
-  Page<Tour> getAllNotBoughtTours(User user, Pageable pageable);
+  List<Tour> getAllNotBoughtTours();
 
   Tour getTour(String tourName);
 

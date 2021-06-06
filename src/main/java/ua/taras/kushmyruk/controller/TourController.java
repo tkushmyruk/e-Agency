@@ -29,10 +29,8 @@ public class TourController {
   }
 
   @GetMapping("/catalog")
-  public String getCatalog(@AuthenticationPrincipal User user, Model model, @PageableDefault(sort = {"id"},
-      direction = Sort.Direction.DESC) Pageable pageable){
-    model.addAttribute("page", tourService.getAllNotBoughtTours(user, pageable));
-    model.addAttribute("url", "/catalog?size=2");
+  public String getCatalog(Model model){
+    model.addAttribute("catalog", tourService.getAllNotBoughtTours());
     return "catalog";
   }
 

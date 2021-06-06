@@ -13,10 +13,10 @@
   <a href="/login">Sign in</a>
     <a href="/registration">Registration</a>
   </#if>
-  <a href="/catalog?page=0&amp;size=4">Catalog of tours</a>
+  <a href="/catalog">Catalog of tours</a>
   <#if user??>
-    <@p.logout/>
     <a href="/user-account">My Account</a>
+    <@p.logout/>
   </#if>
   <#if isAdmin>
     <a href="/user-list?page=1&amp;size=4;">User List</a>

@@ -24,6 +24,7 @@ import ua.taras.kushmyruk.repository.TourRepository;
 import ua.taras.kushmyruk.repository.UserRepository;
 import ua.taras.kushmyruk.service.TourService;
 import ua.taras.kushmyruk.service.util.TourCountOfPeopleComparator;
+import ua.taras.kushmyruk.service.util.TourHotelStarsComparator;
 import ua.taras.kushmyruk.service.util.TourPriceComparator;
 
 @Service
@@ -48,8 +49,8 @@ public class TourServiceImpl implements TourService {
   }
 
   @Override
-  public Page<Tour> getAllNotBoughtTours(User user, Pageable pageable) {
-    return tourRepository.findAllNotBoughtTours(pageable);
+  public List <Tour> getAllNotBoughtTours() {
+    return tourRepository.findAllNotBoughtTours();
 
   }
 
@@ -138,60 +139,22 @@ public class TourServiceImpl implements TourService {
   @Override
   public List<Tour> getSortedByHotelStars(Optional<String> direction) {
     List<Tour> allTours = tourRepository.findAll();
-    if (direction.isPresent() && direction.get().equals("Desc")) {
-      List<Tour> oneStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.ONE))
-          .collect(Collectors.toList());
-      List<Tour> twoStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.TWO))
-          .collect(Collectors.toList());
-      List<Tour> threeStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.THREE))
-          .collect(Collectors.toList());
-      List<Tour> fourStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.FOUR))
-          .collect(Collectors.toList());
-      List<Tour> fiveStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.FIVE))
-          .collect(Collectors.toList());
-      List<Tour> resultTourList = new ArrayList<>();
-      resultTourList.addAll(fiveStar);
-      resultTourList.addAll(fourStar);
-      resultTourList.addAll(threeStar);
-      resultTourList.addAll(twoStar);
-      resultTourList.addAll(oneStar);
-      return resultTourList;
-    }
+    TourHotelStarsComparator comparator = new TourHotelStarsComparator();
     if (direction.isPresent() && direction.get().equals("Asc")) {
-      List<Tour> oneStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.ONE))
-          .collect(Collectors.toList());
-      List<Tour> twoStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.TWO))
-          .collect(Collectors.toList());
-      List<Tour> threeStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.THREE))
-          .collect(Collectors.toList());
-      List<Tour> fourStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.FOUR))
-          .collect(Collectors.toList());
-      List<Tour> fiveStar = allTours.stream()
-          .filter(tour -> tour.getHotelStars().contains(HotelStars.FIVE))
-          .collect(Collectors.toList());
-      List<Tour> resultTourList = new ArrayList<>();
-      resultTourList.addAll(oneStar);
-      resultTourList.addAll(twoStar);
-      resultTourList.addAll(threeStar);
-      resultTourList.addAll(fourStar);
-      resultTourList.addAll(fiveStar);
-      return resultTourList;
+      allTours.sort(comparator);
+      return allTours;
+    }
+    if(direction.isPresent() && direction.get().equals("Desc")){
+      allTours.sort(comparator);
+      Collections.reverse(allTours);
+      return allTours;
     }
     return allTours;
   }
 
   @Override
   public List<Tour> getSortedByPrice(Optional<String> direction) {
-    List<Tour> allTours = tourRepository.findAll();
+    List<Tour> allTours = tourRepository.findAllNotBoughtTours();
     TourPriceComparator comparator = new TourPriceComparator();
     if (direction.isPresent() && direction.get().equals("Asc")) {
       allTours.sort(comparator);
@@ -207,7 +170,7 @@ public class TourServiceImpl implements TourService {
 
   @Override
   public List<Tour> getSortedByCountOfPeople(Optional<String> direction) {
-    List<Tour> allTours = tourRepository.findAll();
+    List<Tour> allTours = tourRepository.findAllNotBoughtTours();
     TourCountOfPeopleComparator comparator = new TourCountOfPeopleComparator();
     if (direction.isPresent() && direction.get().equals("Asc")) {
       allTours.sort(comparator);
