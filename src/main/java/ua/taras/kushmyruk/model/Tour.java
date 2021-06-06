@@ -1,6 +1,7 @@
 package ua.taras.kushmyruk.model;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
@@ -198,5 +199,41 @@ public class Tour {
 
   public void setUser(User user) {
     this.user = user;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    Tour tour = (Tour) o;
+    return isAllInclusive == tour.isAllInclusive &&
+        isHot == tour.isHot &&
+        Objects.equals(id, tour.id) &&
+        Objects.equals(tourName, tour.tourName) &&
+        Objects.equals(countOfPeople, tour.countOfPeople) &&
+        Objects.equals(price, tour.price) &&
+        Objects.equals(startDate, tour.startDate) &&
+        Objects.equals(endDate, tour.endDate) &&
+        Objects.equals(departingFrom, tour.departingFrom) &&
+        Objects.equals(country, tour.country) &&
+        Objects.equals(locality, tour.locality) &&
+        Objects.equals(tourType, tour.tourType) &&
+        Objects.equals(roomType, tour.roomType) &&
+        Objects.equals(tourStatus, tour.tourStatus) &&
+        Objects.equals(hotelStars, tour.hotelStars) &&
+        Objects.equals(hotelName, tour.hotelName) &&
+        Objects.equals(user, tour.user);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects
+        .hash(id, tourName, countOfPeople, price, startDate, endDate, departingFrom, country,
+            locality, tourType, roomType, tourStatus, hotelStars, hotelName, isAllInclusive, isHot,
+            user);
   }
 }

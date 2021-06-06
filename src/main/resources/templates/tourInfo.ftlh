@@ -18,9 +18,11 @@
     <div>This  is all inclusive tour</div>
     </#if>
   </div>
+  <#if tour.getTourStatus() == 'Registered'>
   <div>
     <form method="post">
       <button type="submit">Buy this tour</button>
     </form>
   </div>
+  </#if>
 </@c.main>

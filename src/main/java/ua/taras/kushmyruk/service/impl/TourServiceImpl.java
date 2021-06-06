@@ -1,15 +1,12 @@
 package ua.taras.kushmyruk.service.impl;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.BindingResult;
@@ -69,6 +66,7 @@ public class TourServiceImpl implements TourService {
     if (tourFromDb != null) {
       return false;
     }
+    tour.setTourStatus("Registered");
     LOGGER.info("Tour {} was saved", tour.getTourName());
     tourRepository.save(tour);
     return true;

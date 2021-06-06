@@ -32,10 +32,10 @@ public class CreditCardServiceImpl implements CreditCardService {
       return;
     }
     CreditCard cardFromDb = creditCardRepository.findByCardNumber(creditCard.getCardNumber());
-    if(cardFromDb != null) {
+    if(cardFromDb == null) {
       creditCard.setUser(user);
       creditCardRepository.save(creditCard);
-      LOGGER.info("Credit card {} successfully added", user.getCreditCard().getCardNumber());
+      LOGGER.info("Credit card {} successfully added", creditCard.getCardNumber());
     }
   }
   @Override
