@@ -14,13 +14,15 @@
     <a href="/registration">Registration</a>
   </#if>
   <a href="/catalog">Catalog of tours</a>
+  <#if isAdmin>
+    <a href="/user-list?page=0&amp;size=4;">User List</a>
+  </#if>
   <#if user??>
     <a href="/user-account">My Account</a>
     <@p.logout/>
   </#if>
-  <#if isAdmin>
-    <a href="/user-list?page=1&amp;size=4;">User List</a>
-  </#if>
+  <br/>
+  <br/>
   <#nested/>
   </body>
   </html>

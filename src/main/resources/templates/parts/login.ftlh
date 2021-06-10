@@ -1,10 +1,10 @@
 <#macro login path isRegisterForm>
-  <form action="${path}" method="post">
+  <form action="${path}" method="post" xmlns="http://www.w3.org/1999/html">
     <div>
       <label>User Name :
         <input type="text" name="username" placeholder="User name"/>
         <#if usernameError??>
-          <div class="invalid-feedback">
+          <div>
             ${usernameError}
           </div>
         </#if>
@@ -15,7 +15,7 @@
       <label>Password :
         <input type="password" name="password" placeholder="password"/>
         <#if passwordError??>
-          <div class="invalid-feedback">
+          <div>
             ${passwordError}
           </div>
         </#if>
@@ -26,7 +26,7 @@
         <label>Email :
           <input type="email" name="email" placeholder="email"/>
           <#if emailError??>
-            <div class="invalid-feedback">
+            <div>
               ${emailError}
             </div>
           </#if>
@@ -39,6 +39,6 @@
 </#macro>
 <#macro logout>
   <form action="/logout" method="post">
-    <button type="submit">Sign out</button>
+    <input type="submit" value="Sign out"/>
   </form>
 </#macro>

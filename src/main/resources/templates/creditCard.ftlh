@@ -10,7 +10,7 @@
           </label>
           <#if cardNumberError??>
             <div class="invalid-feedback">
-              ${cardNubmerError}
+              ${cardNumberError}
             </div>
           </#if>
         </div>

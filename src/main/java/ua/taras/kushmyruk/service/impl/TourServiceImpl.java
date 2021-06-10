@@ -192,7 +192,7 @@ public class TourServiceImpl implements TourService {
 
   @Override
   public List<Tour> getBoughtToursByUser(User user) {
-    return userRepository.findUserWithBoughtTours(user.getId()).getBoughtTours();
+    return tourRepository.findAllUserTours(user);
   }
 
   @Override
@@ -200,7 +200,7 @@ public class TourServiceImpl implements TourService {
   public void returnTour(User user, String tourName) {
     Tour userTour = tourRepository.findByTourName(tourName);
     if(userTour != null) {
-      List<Tour> toursList = userRepository.findUserWithBoughtTours(user.getId()).getBoughtTours();
+      List<Tour> toursList = tourRepository.findAllUserTours(user);
       CreditCard creditCard = userRepository.findUserWithCreditCard(user.getId()).getCreditCard();
       creditCard.setBalance(creditCard.getBalance() + Double.valueOf(userTour.getPrice()));
       userTour.setTourStatus("Registered");

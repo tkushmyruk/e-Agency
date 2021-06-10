@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserDetailsService {
       return false;
     }
     user.setActive(true);
-    user.setRoles(Collections.singleton(UserRole.ADMIN));
+    user.setRoles(Collections.singleton(UserRole.USER));
     userRepository.save(user);
     LOGGER.info("User {} successfully was saved ", user.getUsername());
     return true;

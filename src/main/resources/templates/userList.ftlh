@@ -23,16 +23,17 @@
             <button type="submit">Active</button>
           </form>
           </td>
-        </#if>
+        <#else >
         <td>
           <form method="post" action="/user-block">
             <input type="hidden" name="username" value="${user.username}"/>
             <button type="submit">block</button>
           </form>
         </td>
+        </#if>
       </tr>
     </#list>
     </tbody>
-    <@p.pager url page/>
   </table>
+  <@p.pager url page/>
 </@c.main>
