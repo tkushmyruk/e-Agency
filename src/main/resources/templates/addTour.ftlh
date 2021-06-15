@@ -3,96 +3,114 @@
 <h2>Add Tour</h2>
   <div>
     <form method="post">
-    <div>
-      <label>Tour Name :
-        <input type="text" name="tourName" placeholder="Tour Name"/>
-      </label>
-      <#if tourNameError??>
-        <div class="invalid-feedback">
-          ${tourNameError}
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Tour Name: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="text" name="tourName"
+                 class="form-control ${(tourNameError??)?string('is-invalid', '')}" placeholder="tour name"/>
+          <#if tourNameError??>
+            <div class="invalid-feedback">
+              ${tourNameError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Count of People :
-        <input type="number" name="countOfPeople" placeholder="Count of People"/>
-      </label>
-      <#if countOfPeopleError??>
-        <div class="invalid-feedback">
-          ${countOfPeopleError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Count of People: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="text" name="countOfPeople"
+                 class="form-control ${(countOfPeopleError??)?string('is-invalid', '')}" placeholder="how many people?"/>
+          <#if countOfPeopleError??>
+            <div class="invalid-feedback">
+              ${countOfPeopleError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Price :
-        <input type="number" step="0.01" name="price" placeholder="Price"/>
-      </label>
-      <#if priceError??>
-        <div class="invalid-feedback">
-          ${priceError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Price: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="number" step="0.01" name="price"
+                 class="form-control ${(priceError??)?string('is-invalid', '')}" placeholder="price"/>
+          <#if priceError??>
+            <div class="invalid-feedback">
+              ${priceError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Start Date :
-        <input type="date" name="startDate" placeholder="Start Date"/>
-      </label>
-      <#if startDateError??>
-        <div class="invalid-feedback">
-          ${startDateError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Start Date: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="date" name="startDate"
+                 class="form-control ${(startDateError??)?string('is-invalid', '')}" placeholder="start date"/>
+          <#if startDateError??>
+            <div class="invalid-feedback">
+              ${startDateError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>End Date :
-        <input type="date" name="endDate" placeholder="End Date"/>
-      </label>
-      <#if endDateError??>
-        <div class="invalid-feedback">
-          ${endDateError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">End Date: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="date" name="endDate"
+                 class="form-control ${(endDateError??)?string('is-invalid', '')}" placeholder="end date"/>
+          <#if endDateError??>
+            <div class="invalid-feedback">
+              ${endDateError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Departing From :
-        <input type="text" name="departingFrom" placeholder="Departing From"/>
-      </label>
-      <#if departingFromError??>
-        <div class="invalid-feedback">
-          ${departingFromError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Departing from: </label>
+        <div class="col-sm-4 mt-0.5">
+          <input type="text" name="departingFrom"
+                 class="form-control ${(departingFromError??)?string('is-invalid', '')}" placeholder="departing from"/>
+          <#if  departingFromError??>
+            <div class="invalid-feedback">
+              ${departingFromError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Country :
-        <input type="text" name="country" placeholder="Country"/>
-      </label>
-      <#if countryError??>
-        <div class="invalid-feedback">
-          ${countryError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Country: </label>
+        <div class="col-sm-4">
+          <input type="text" name="country"
+                 class="form-control ${(countryError??)?string('is-invalid', '')}" placeholder="country"/>
+          <#if countryError??>
+            <div class="invalid-feedback">
+              ${countryError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Locality :
-        <input type="text" name="locality" placeholder="Locality"/>
-      </label>
-      <#if localityError??>
-        <div class="invalid-feedback">
-          ${localityError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Locality: </label>
+        <div class="col-sm-4">
+          <input type="text" name="locality"
+                 class="form-control ${(localityError??)?string('is-invalid', '')}" placeholder="locality"/>
+          <#if localityError??>
+            <div class="invalid-feedback">
+              ${localityError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
-    <div>
-      <label>Hotel Name :
-        <input type="text" name="hotelName" placeholder="Hotel Name"/>
-      </label>
-      <#if hotelNameError??>
-        <div class="invalid-feedback">
-          ${hotelNameError}
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label-2">Hotel Name: </label>
+        <div class="col-sm-4">
+          <input type="text" name="hotelName"
+                 class="form-control ${(hotelNameError??)?string('is-invalid', '')}" placeholder="hotel name"/>
+          <#if hotelNameError??>
+            <div class="invalid-feedback">
+              ${hotelNameError}
+            </div>
+          </#if>
         </div>
-      </#if>
-    </div>
+      </div>
     <div>
       <p><b>Tour Type</b></p>
       <div>
@@ -163,7 +181,7 @@
         <label for="hot">is it Hot?</label>
       </div>
     </div>
-    <input type="submit" value="save"/>
+    <button class="btn btn-primary">Save</button>
     </form>
   </div>
 </@c.main>

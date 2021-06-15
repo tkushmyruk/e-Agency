@@ -15,7 +15,7 @@
     <div>Your trip start at ${tour.getStartDate().toString()} and end ${tour.getEndDate().toString()}</div>
     <div>Your plane will wait you in ${tour.getDepartingFrom()}</div>
     <#if tour.isAllInclusive()>
-    <div>This  is all inclusive tour</div>
+    <div>This is all inclusive tour</div>
     </#if>
   </div>
   <#if tour.getTourStatus() == 'Registered'>

@@ -10,7 +10,7 @@
       <div>
         <label>Card Password : <input type="password" name="cardPassword" placeholder="Card Password"></label>
       </div>
-      <button type="submit">Replenish</button>
+      <button class="btn btn-primary" type="submit">Replenish</button>
     </form>
   </div>
 </@c.main>

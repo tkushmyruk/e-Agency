@@ -4,27 +4,31 @@
     <h2>Add your card</h2>
     <div>
       <form method="post">
-        <div>
-          <label>Card Number :
-            <input type="text" name="cardNumber" placeholder="Card Number"/>
-          </label>
-          <#if cardNumberError??>
-            <div class="invalid-feedback">
-              ${cardNumberError}
-            </div>
-          </#if>
+        <div class="form-group row">
+          <label class="col-sm-1 col-form-label-1">Card Number: </label>
+          <div class="col-sm-3">
+            <input type="text" name="cardNumber"
+                   class="form-control ${(cardNumberError??)?string('is-invalid', '')}" placeholder="card number"/>
+            <#if cardNumberError??>
+              <div class="invalid-feedback">
+                ${cardNumberError}
+              </div>
+            </#if>
+          </div>
         </div>
-        <div>
-          <label>Card Password :
-            <input type="password" name="cardPassword" placeholder="Card Password"/>
-          </label>
-          <#if cardPasswordError??>
-            <div class="invalid-feedback">
-              ${cardPasswordError}
-            </div>
-          </#if>
+        <div class="form-group row">
+          <label class="col-sm-1 col-form-label-1">Password: </label>
+          <div class="col-sm-3">
+            <input type="text" name="cardPassword"
+                   class="form-control ${(cardPasswordError??)?string('is-invalid', '')}" placeholder="card password"/>
+            <#if cardPasswordError??>
+              <div class="invalid-feedback">
+                ${cardPasswordError}
+              </div>
+            </#if>
+          </div>
         </div>
-        <button type="submit">Save Card</button>
+        <button class="btn btn-primary" type="submit">Save Card</button>
       </form>
     </div>
   <#else >

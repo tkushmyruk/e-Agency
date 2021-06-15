@@ -31,7 +31,7 @@ public class User implements UserDetails {
   @NotBlank(message = "Username cant be empty")
   @Length(max = 60, message = "Username too long")
   private String username;
-  @NotBlank(message = "Password cant be empty")
+//  @NotBlank(message = "Password cant be empty")
   @Length(min = 5, message = "Password too short and unsafe")
   private String password;
   private boolean active;
